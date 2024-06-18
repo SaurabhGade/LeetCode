@@ -6,8 +6,9 @@ public:
         for(int i = 1 ; i < prices.size() ; i++){
             if(min > prices[i])
                 min = prices[i];
-            if(ans < prices[i]-min)
-                ans = prices[i]-min;
+            int curr = prices[i]-min;
+            if(ans < curr)
+                ans = curr;
         }
         return ans;
     }
