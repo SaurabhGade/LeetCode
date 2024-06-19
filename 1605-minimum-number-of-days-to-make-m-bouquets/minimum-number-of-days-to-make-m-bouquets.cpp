@@ -19,7 +19,7 @@ public:
         int n = bloomDay.size();
         if(double (n) <  double (m)*double (k))
             return -1;
-        int ans = INT_MAX;
+       // int ans = INT_MAX;
     
         int min = INT_MAX , max = INT_MIN;
         for(int i = 0 ; i < n ; i++){
@@ -33,8 +33,6 @@ public:
         while(min <= max){
             int mid = (min + max)/2;
             if(isPossible(bloomDay , m , k , mid)){
-                if(ans > mid)
-                    ans = mid;
                 max = mid-1;
             }else
                 min = mid+1;
