@@ -13,9 +13,7 @@ public:
             }
         }
         ms += cnt/k;
-        if(ms >= m)
-        return true;
-        return false;
+        return (ms>=m);
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
         int n = bloomDay.size();
