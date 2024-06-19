@@ -22,8 +22,10 @@ public:
         if(double(n) < double(m)*double(k))
             return -1;
         int ans = INT_MAX;
+    
         int min = INT_MAX , max = INT_MIN;
         for(int i = 0 ; i < n ; i++){
+           
             if(bloomDay[i] < min)
                 min = bloomDay[i];
             if(bloomDay[i] > max)
