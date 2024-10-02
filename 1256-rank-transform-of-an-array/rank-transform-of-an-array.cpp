@@ -1,8 +1,8 @@
 class Solution {
 public:
     vector<int> arrayRankTransform(vector<int>& arr) {
+        if(arr.empty()) return {};
         vector<int> ans(arr.size());
-        if(!ans.size()) return ans;
         vector<pair<int, int>> pr;
         for(int i = 0 ; i < arr.size() ; i++)
             pr.push_back({arr[i], i});
