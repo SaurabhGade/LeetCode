@@ -1,18 +1,31 @@
 class Solution {
 public:
     long long dividePlayers(vector<int>& skill) {
-        sort(skill.begin(), skill.end());
-        int i= 0, j = skill.size()-1;
-        long long prisum = skill[0] + skill[skill.size()-1];
+        priority_queue<int> p;
+        priority_queue<int, vector<int> , greater<int> > q;
+        for(int i = 0 ; i < skill.size(); i++){
+            p.push(skill[i]);
+            q.push(skill[i]);
+        }
         long long ans = 0;
-        while(i < j){
-            long long  a = skill[i];
-            long long  b = skill[j];
+        bool flag = true;
+        long long prisum;
+        int i = 0;
+        while(i < skill.size()/2){
+            long long a,b;
+            a = p.top(); p.pop();
+            b = q.top(); q.pop();
+            if(flag){
+                prisum = a+b;
+                ans = a*b;
+                i++;
+                flag = false;
+                continue;
+            }
             if(a+b != prisum)
                 return -1;
-            else
-                ans += a * b;
-            i++;j--;
+            ans += a*b;
+            i++;
         }
         return ans;
     }
