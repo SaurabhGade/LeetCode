@@ -2,7 +2,6 @@ class Solution {
 public:
     int hash[26] = {0};
     int org[26] = {0};
-
     void restore(){
         for(int i = 0; i < 26; i++)
             hash[i] = org[i];
@@ -43,5 +42,5 @@ public:
             }
         }
         return false;
-    }
+    } 
 };
