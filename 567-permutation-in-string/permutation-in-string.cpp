@@ -7,11 +7,13 @@ public:
             hash[i] = org[i];
     }
     bool checkInclusion(string s1, string s2) {
-        for(int i = 0 ; i < s1.size(); i++){
+        int nn = s1.size();
+        int mm = s2.size();
+        for(int i = 0 ; i < nn; i++){
             hash[s1[i]%26]++;
             org[s1[i]%26]++;
         }
-        for(int i = 0 ; i < s2.size(); i++){
+        for(int i = 0 ; i < mm; i++){
             int curr = 0;
             int x = i-1;
             int y = i+1;
@@ -24,19 +26,19 @@ public:
                             x--;
                             curr++;
                         } else break;
-                    } if(curr == s1.size()) return true;
+                    } if(curr == nn) return true;
                 restore();
                 x = i-1;
                 y = i+1;
                 curr = 1;
                 hash[s2[i]%26]--;
-                    while(y < s2.size()){
+                    while(y < mm){
                         if(hash[s2[y]%26] > 0){
                             hash[s2[y]%26]--;
                             curr++;
                             y++;
                         } else break;
-                        if(curr == s1.size() ) return true;
+                        if(curr == nn ) return true;
                     }
                 restore();
             }
