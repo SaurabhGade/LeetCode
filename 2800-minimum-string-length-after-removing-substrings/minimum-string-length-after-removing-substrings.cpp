@@ -12,9 +12,12 @@ public:
         return k;
     }
     int minLength(string s) {
-        string k = remove(s);
-        if(k.length()  != s.length())
-            return minLength(k);
-        return k.length();
+        int ans = s.length();
+        while(true){
+            string k = remove(s);
+            if(k.size() == s.size())
+                return k.size();
+            s = k;
+        }
     }
 };
