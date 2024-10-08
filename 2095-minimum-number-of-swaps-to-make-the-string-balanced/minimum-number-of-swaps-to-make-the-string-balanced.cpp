@@ -2,13 +2,13 @@ class Solution {
 public:
     auto minSwaps(auto s) {
         auto close = 0;
-        auto max   = 0;
+        auto maxi   = 0;
         for(auto c: s){
             if(c == ']')
                 close++;
             else close --;
-            max = (max < close)? close: max;
+            maxi = max(maxi, close);
         }
-        return (max+1)/2;
+        return (maxi+1)/2;
     }
 };
