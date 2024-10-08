@@ -1,9 +1,9 @@
 class Solution {
 public:
     int minSwaps(string s) {
-        auto close = 0;
-        auto maxi  = 0;
-        for(auto c: s){
+        int close = 0;
+        int maxi  = 0;
+        for(char c: s){
             close += (c == ']')? 1: -1;
             maxi = max(maxi, close);
         }
