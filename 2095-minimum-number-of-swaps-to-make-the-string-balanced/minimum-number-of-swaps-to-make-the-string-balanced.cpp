@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int minSwaps(string s) {
+    auto minSwaps(auto s) {
         auto close = 0;
         auto max   = 0;
         for(auto c: s){
