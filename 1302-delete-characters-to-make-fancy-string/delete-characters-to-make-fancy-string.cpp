@@ -4,8 +4,9 @@ public:
         string ans = "";
         char ch = s[0];
         int cnt = 1;
+        int n = s.size();
         ans += ch;
-        for(int i = 1; i < s.size(); i++){
+        for(int i = 1; i < n; i++){
             if(s[i] == ch) cnt++;
             else { 
                 cnt = 1; 
