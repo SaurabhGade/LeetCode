@@ -23,7 +23,6 @@ public:
                 currMin = currMax = i;
             }
         }
-        if(currMin < priMax) return false;
-        return true;
+        return !(currMin < priMax);
     }
 };
