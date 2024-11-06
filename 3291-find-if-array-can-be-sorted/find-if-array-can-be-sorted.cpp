@@ -3,28 +3,27 @@ public:
     int setBitCnt(int n){
         int k = pow(2, 8);
         int cnt = 0;
-        while(k > 0){
+        while(k){
             cnt += (k & n)? 1: 0;
             k >>= 1;
         }
         return cnt;
     }
-    void swap(int *a, int *b){
-        int t = *a;
-        *a = *b;
-        *b = t;
-    }
     bool canSortArray(vector<int>& nums) {
-        int n = nums.size();
-        for(int i = n-1; i >= 0; i--){
-            for(int j = 0; j < i; j++){
-                if(nums[j] > nums[j+1] && 
-                    setBitCnt(nums[j]) == setBitCnt(nums[j+1])
-                    ){
-                        swap(&nums[j], &nums[j+1]);
-                }
+        int currMin , currMax, priMax;
+        currMin = currMax = nums[0];
+        priMax = INT_MIN;
+        for(int &i: nums){
+            if(setBitCnt(i) == setBitCnt(currMin)){
+                currMin = min(currMin, i);
+                currMax = max(currMax, i);
+            }else{
+                if(currMin < priMax) return false;
+                priMax = currMax;
+                currMin = currMax = i;
             }
         }
-        return is_sorted(nums.begin(), nums.end());
+        if(currMin < priMax) return false;
+        return true;
     }
 };
