@@ -7,7 +7,7 @@ public:
         for(int i = 0; i < 24; i++){
             int cnt = 0;
             for(int j = 0; j < n; j++){
-                cnt += IS_BIT_SET(c[j], i)? 1: 0;
+                 if(IS_BIT_SET(c[j], i)) cnt++;
             }
             ans = (cnt > ans)? cnt: ans;
         }
