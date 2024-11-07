@@ -1,7 +1,7 @@
 class Solution {
 public:
+    #define IS_BIT_SET(k, i) (((k) & (1U << i)) != 0)
     int largestCombination(vector<int>& c) {
-        #define IS_BIT_SET(k, i) (assert((i) <= 31), ((k) & (1U << i)) != 0)
         int n = c.size();
         int ans = 0;
         for(int i = 0; i < 24; i++){
