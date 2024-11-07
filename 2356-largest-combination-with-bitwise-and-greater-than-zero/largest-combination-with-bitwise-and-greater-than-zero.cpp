@@ -9,7 +9,7 @@ public:
             for(int j = 0; j < n; j++){
                  if(IS_BIT_SET(c[j], i)) cnt++;
             }
-            ans = (cnt > ans)? cnt: ans;
+            if(cnt > ans) ans = cnt;
         }
         return ans;
     }
