@@ -2,7 +2,8 @@ class Solution {
 public:
     bool is_bit_set(int k , int i){
         assert(i <= 31);
-        unsigned int t = pow(2, i);
+        unsigned int t = 1;
+        t <<= i;
         return k&t;
     }
     int largestCombination(vector<int>& c) {
