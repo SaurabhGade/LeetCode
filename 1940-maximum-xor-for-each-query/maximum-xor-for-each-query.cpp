@@ -1,35 +1,25 @@
 class Solution {
 public:
-    #define IS_BIT_SET(k, i) (k & (1U << (i)))
+    #define IS_BIT_SET(k, i) ((k) & 1U << (i))
     vector<int> getMaximumXor(vector<int>& nums, int mb) {
         int n = nums.size();
-        int arr[mb];
-        vector<int> ans;
-        memset(arr, 0, sizeof(arr));
-        for(int i = 0; i < mb; i++){
-            for(int j = 0; j < n; j++){
-                arr[mb-i-1] += IS_BIT_SET(nums[j], i)? 1: 0;
-            }
+        int prifix[n];
+        int k = 0;
+        for(int i = 0; i < n; i++){
+            k ^= nums[i];
+            prifix[i] = k;
         }
-        for(int i = n-1; i >= 0; i--){
+        reverse(prifix, prifix+n);
+        for(int i = 0; i < n; i++){
             int queryI = 0;
-            for(int j = mb-1; j >= 0; j--){
-                if(arr[j] % 2 == 0){
-                    queryI += pow(2, mb-j-1);
-                } 
-                arr[j] -= IS_BIT_SET(nums[i], mb-j-1)?1:0;
+            for(int j = 0; j < mb; j++){
+                queryI += IS_BIT_SET(prifix[i], j)?0: pow(2, j);
             }
-            ans.push_back(queryI);
+            nums[i] = queryI;
         }
-        return ans;
+        return nums;
     }
 };
-/*
-    mb = 2
-00
-01
-01
-11
---
-13
-*/
+// 0, 1, 0, 3
+// 3, 0, 1, 0
+//11, 00, 01, 00
