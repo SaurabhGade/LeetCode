@@ -29,7 +29,8 @@ public:
     }
     vector<vector<int>> subsets(vector<int>& nums) {
 
-        return powerSet(nums);
+        return powerSet(nums); //RUNTIME 0MS BEATS 100% RUNTIME AND 75% MEMORY.
+
         /* SLOW RUNTION = 6MS
         vector<vector<int>> ans;
         powerSetRec(nums, {}, 0, ans);
