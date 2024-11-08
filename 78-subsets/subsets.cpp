@@ -28,8 +28,12 @@ public:
         powerSetRec(nums, output, i+1, ans);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
+
+        return powerSet(nums);
+        /* SLOW RUNTION = 6MS
         vector<vector<int>> ans;
         powerSetRec(nums, {}, 0, ans);
         return ans;
+        */
     }
 };
