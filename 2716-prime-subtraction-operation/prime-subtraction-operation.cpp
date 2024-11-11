@@ -29,7 +29,7 @@ public:
                 k--;
             }
             min = nums[i];
-            if(isSorted(nums)) return true;
+            //if(isSorted(nums)) return true;
         }
         return isSorted(nums);
     }
