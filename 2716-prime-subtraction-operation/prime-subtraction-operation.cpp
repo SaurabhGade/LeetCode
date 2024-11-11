@@ -1,5 +1,6 @@
 class Solution {
 public:
+    unordered_map<int, bool> mp;
     bool isSorted(vector<int> & nums){
         int min = INT_MIN;
         for(int &i: nums){
@@ -10,10 +11,16 @@ public:
         return true;
     }
     bool isPrime(int k){
+        if(mp.find(k) != mp.end()) return mp[k];
         if(k == 1) return false;
         int n = sqrt(k);
-        for(int i = 2; i <= n; i++)
-            if(k % i == 0) return false;
+        for(int i = 2; i <= n; i++){
+            if(k % i == 0) {
+                mp[k] = false;
+                return false;
+            }
+        }
+        mp[k] = true;
         return true;
     }
     bool primeSubOperation(vector<int>& nums) {
